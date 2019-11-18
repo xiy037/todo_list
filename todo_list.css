@@ -1,0 +1,54 @@
+* {
+  background-color: rgb(228, 230, 235);
+}
+.outside, .enter, .category{
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  width: 450px;
+  padding: 10px;
+  overflow: auto;
+  background-color: white;
+}
+.enter, .category {
+  margin-top: 0;
+  width: 400px;
+}
+.category{
+  text-align: center;
+  padding: 20px;
+}
+.head, ol, li {
+  background-color:white;
+  width: 300px;
+}
+.head {
+  margin-left: 50px;
+}
+.inputText {
+  font-size: 14px;
+  background-color:white;
+  margin-left: 25px;
+  width: 270px;
+}
+li {
+  padding: 3px;
+}
+li:nth-child(even) {
+  background-color: rgb(255, 230, 230);
+}
+.buttons {
+  background-color:pink;
+  font-size: 14px;
+  border-radius: 4px;
+}
+.buttons:hover {
+  background-color: rgb(235, 184, 181);
+}
+.complete {
+  text-decoration-line: line-through;
+}
+.active {
+  text-decoration-line: none;
+}

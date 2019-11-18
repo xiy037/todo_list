@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>To-do List</title>
+  <link rel="stylesheet" type="text/css" href="todo_list.css">
+</head>
+
+<body>
+  <div class="outside">
+    <h2 class="head">To-do List</h2>
+    <div class="enter">
+      <input class="inputText" id="userInput" type="text">
+      <input class="buttons" type="button" value="Add" onclick="addList()">
+      <ol id="list"></ol>
+    </div>
+    <div class="category">
+      <input class="buttons" type="button" value="All" onclick="listAll()">
+      <input class="buttons" type="button" value="Active" onclick="listActive()">
+      <input class="buttons" type="button" value="Complete" onclick="listComplete()">
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="todo_list.js"></script>
+
+</html>
