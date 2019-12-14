@@ -1,16 +1,21 @@
 function addList() {
   var inputText = document.getElementById("userInput").value;
-  var listContent = document.createTextNode(inputText);
-  var list = document.getElementById("list");
-  var newList = document.createElement("li");
-  var checkBox = document.createElement("input");
-  checkBox.setAttribute("type", "checkbox");
-  checkBox.setAttribute("class", "checkBoxClass");
-  newList.appendChild(listContent);
-  newList.insertBefore(checkBox, listContent);
-  list.appendChild(newList);
-  checkBox.addEventListener("click", markCheckBox);
-  clearDisplay();
+  if (inputText === "") {
+    alert("invalid input!! Please enter something!");
+  } else {
+    var listContent = document.createTextNode(inputText);
+    var list = document.getElementById("list");
+    var newList = document.createElement("li");
+    newList.className = "active";
+    var checkBox = document.createElement("input");
+    checkBox.setAttribute("type", "checkbox");
+    checkBox.setAttribute("class", "checkBoxClass");
+    newList.appendChild(listContent);
+    newList.insertBefore(checkBox, listContent);
+    list.appendChild(newList);
+    checkBox.addEventListener("click", markCheckBox);
+    clearDisplay();
+  } 
 }
 
 function clearDisplay() {

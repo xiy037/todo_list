@@ -1,47 +1,73 @@
 * {
-  background-color: rgb(228, 230, 235);
+  margin: 0;
+  padding: 0;
 }
-.outside, .enter, .category{
-  border-radius: 10px;
-  margin-left: auto;
-  margin-right: auto;
+
+body {
+  background-image: url("img/background-filter.jpg");
+  background-size: cover;
+}
+.outside {
+  margin: auto;
   margin-top: 50px;
-  width: 450px;
-  padding: 10px;
+  padding: 0 30px;
+  width: 400px;
   overflow: auto;
   background-color: white;
+  border-radius: 10px;
 }
-.enter, .category {
-  margin-top: 0;
-  width: 400px;
+.enter, 
+.category {
+  padding: 10px 0;
+  max-width: 100%;
 }
 .category{
   text-align: center;
-  padding: 20px;
 }
-.head, ol, li {
+.head, 
+ol, 
+li {
   background-color:white;
-  width: 300px;
+  max-width: 100%;
+}
+ol {
+  list-style-position: inside;
 }
 .head {
-  margin-left: 50px;
+  padding-top: 30px;
+  text-align: left;
+}
+.intro {
+  padding-top: 10px;
+  font-style: italic;
 }
 .inputText {
+  width: 85%;
+  height: 25px;
   font-size: 14px;
   background-color:white;
-  margin-left: 25px;
-  width: 270px;
+ 
 }
 li {
-  padding: 3px;
+  padding: 5px;
 }
 li:nth-child(even) {
   background-color: rgb(255, 230, 230);
 }
-.buttons {
-  background-color:pink;
+.addBtn {
+  padding: 5px;
+  width: 12%;
+  background-color: #fc999c;
   font-size: 14px;
+  color: white;
   border-radius: 4px;
+  border-color: white;
+}
+.buttons {
+  padding: 5px;
+  color: #fc999c;
+  font-size: 14px;
+  border-color: white;
 }
 .buttons:hover {
   background-color: rgb(235, 184, 181);
