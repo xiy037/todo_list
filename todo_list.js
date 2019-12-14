@@ -1,3 +1,17 @@
+loadStoredList();
+
+function loadStoredList() {
+ var stored = JSON.parse(localStorage.getItem("todoList"));
+ document.getElementById("list").innerHTML = stored;
+}
+function storeToDoList() {
+  var list = document.getElementById("list").innerHTML;
+  localStorage.setItem("todoList", JSON.stringify(list));
+}
+function clearAllandStorage() {
+  document.getElementById("list").innerHTML = "";
+  localStorage.removeItem("todoList");
+}
 function addList() {
   var inputText = document.getElementById("userInput").value;
   if (inputText === "") {
@@ -10,12 +24,13 @@ function addList() {
     var checkBox = document.createElement("input");
     checkBox.setAttribute("type", "checkbox");
     checkBox.setAttribute("class", "checkBoxClass");
+    checkBox.setAttribute("onclick", "markCheckBox()")
     newList.appendChild(listContent);
     newList.insertBefore(checkBox, listContent);
     list.appendChild(newList);
-    checkBox.addEventListener("click", markCheckBox);
     clearDisplay();
-  } 
+  }
+  storeToDoList();
 }
 
 function clearDisplay() {
@@ -24,10 +39,12 @@ function clearDisplay() {
 
 function markCheckBox() {
   var boxList = document.getElementsByClassName("checkBoxClass");
+  var checkBox = document.getElementsByClassName("checkBoxClass");
   var listItem = document.getElementsByTagName("li");
   for (i = 0; i < boxList.length; i++) {
     if (boxList[i].checked) {
       listItem[i].className = "complete";
+      checkBox[i].setAttribute("checked", "checked");
     } else {
       listItem[i].className = "active";
     }
