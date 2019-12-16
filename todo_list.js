@@ -1,5 +1,6 @@
 loadStoredList();
 document.addEventListener("click", storeToDoList);
+
 function loadStoredList() {
   var stored = JSON.parse(localStorage.getItem("todoList"));
   document.getElementById("list").innerHTML = stored;
