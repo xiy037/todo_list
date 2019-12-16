@@ -45,6 +45,7 @@ function addIdToItems() {
 function listAll() {
   clearContent();
   showList(listArr);
+  console.log(list.innerHTML);
 }
 function listActive() {
   clearContent();
@@ -62,6 +63,7 @@ function clearContent() {
 function showList(objArr) {
   for (var i = 0; i < objArr.length; i++) {
     var newList = document.createElement("li");
+    newList.className = objArr[i].status;
     newList.innerHTML = `<input type="checkbox" id=${objArr[i].id} ${objArr[i].status === "complete" ? "checked" : ""}>${objArr[i].text}`;
     list.appendChild(newList);
   }
@@ -72,6 +74,7 @@ function markCheckbox() {
       if (listArr[i].id == event.target.id){
         if (event.target.checked === true) {
           listArr[i].status = "complete";
+          event.target.parentNode.className = listArr[i].status;
         } else {
           listArr[i].status = "active";
         }
