@@ -10,11 +10,12 @@
     status: acitve,
   }
 ];
-addList()时将输入部分写入listArr并储存，并且创建新的li显示输入内容
+addList()时将输入部分写入listArr并储存，并且创建新的li显示输入内容，存数据。
 listAll()时将所有listArr都建li，重新写入ol下面显示出来
 listActive()将status为active的部分写入li，重写ol，显示出来
 istComplete()讲status为complete的部分写入li，重写ol，显示
-markcheckbox()，根据checkbox是否选中而改变status状态为active或者complete。
+showList()用来重写ol，里面设好格式
+markcheckbox()，给ol加event handler，根据target checkbox是否选中而改变status状态为active或者complete, 每次存一下数据。
 */
 var listArr = [];
 var list = document.getElementById("list");
@@ -22,6 +23,7 @@ if (loadStoredList() !== null) {
   listArr = loadStoredList();
 }
 listAll();
+
 function addList() {
   var listObjItem = {};
   var inputVal = document.getElementById("userInput").value;
@@ -40,6 +42,7 @@ function addList() {
     console.log(listArr);
   }
 }
+
 function addIdToItems() {
   for (var i = 0; i < listArr.length; i++) {
     listArr[i].id = i;
@@ -50,6 +53,7 @@ function listAll() {
   clearContent();
   showList(listArr);
 }
+
 function listActive() {
   clearContent();
   var activeListArr = [];
@@ -60,6 +64,7 @@ function listActive() {
   }
   showList(activeListArr);
 }
+
 function listComplete() {
   clearContent();
   var completeListArr = [];
@@ -70,9 +75,11 @@ function listComplete() {
   }
   showList(completeListArr);
 }
+
 function clearContent() {
   list.innerHTML = "";
 }
+
 function showList(objArr) {
   for (var i = 0; i < objArr.length; i++) {
     var newList = document.createElement("li");
@@ -81,6 +88,7 @@ function showList(objArr) {
     list.appendChild(newList);
   }
 }
+
 function markCheckbox() {
   if (event.target.type === "checkbox") {
     for (var i = 0; i < listArr.length; i++) {
