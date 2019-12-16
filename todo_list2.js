@@ -18,6 +18,10 @@ markcheckbox()，根据checkbox是否选中而改变status状态为active或者c
 */
 var listArr = [];
 var list = document.getElementById("list");
+if (loadStoredList() !== null) {
+  listArr = loadStoredList();
+}
+listAll();
 function addList() {
   var listObjItem = {};
   var inputVal = document.getElementById("userInput").value;
@@ -45,7 +49,6 @@ function addIdToItems() {
 function listAll() {
   clearContent();
   showList(listArr);
-  console.log(list.innerHTML);
 }
 function listActive() {
   clearContent();
@@ -90,7 +93,8 @@ function markCheckbox() {
         }
       }
     }
-  }   
+  } 
+  storeList();
 }
 
 function storeList() {
@@ -98,7 +102,7 @@ function storeList() {
   localStorage.setItem("todoList", jsonArr);
 }
 function loadStoredList() {
-  console.log(JSON.parse(localStorage.getItem("todoList")));
+  return JSON.parse(localStorage.getItem("todoList"));
 }
 function clearAllandStorage() {
   clearContent();
