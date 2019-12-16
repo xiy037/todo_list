@@ -57,6 +57,16 @@ function listActive() {
   }
   showList(activeListArr);
 }
+function listComplete() {
+  clearContent();
+  var completeListArr = [];
+  for (var i = 0; i < listArr.length; i++) {
+    if (listArr[i].status === "complete") {
+      completeListArr.push(listArr[i]);
+    }
+  }
+  showList(completeListArr);
+}
 function clearContent() {
   list.innerHTML = "";
 }
@@ -83,8 +93,6 @@ function markCheckbox() {
   }   
 }
 
-
-
 function storeList() {
   var jsonArr = JSON.stringify(listArr);
   localStorage.setItem("todoList", jsonArr);
@@ -93,5 +101,6 @@ function loadStoredList() {
   console.log(JSON.parse(localStorage.getItem("todoList")));
 }
 function clearAllandStorage() {
+  clearContent();
   localStorage.removeItem("todoList");
 }
